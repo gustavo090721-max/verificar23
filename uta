@@ -1,0 +1,1130 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uma surpresa ❤️</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            background:
+                radial-gradient(circle at top, #3a101c, #111 55%);
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+
+            margin: 0;
+
+            padding: 50px 15px;
+
+            min-height: 100vh;
+
+        }
+
+
+        /* CAIXA PRINCIPAL */
+
+        .caixa {
+
+            background: rgba(29, 29, 29, 0.95);
+
+            max-width: 500px;
+
+            margin: auto;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.6);
+
+        }
+
+
+        /* INPUT */
+
+        input[type="password"] {
+
+            padding: 12px;
+
+            width: 220px;
+
+            border-radius: 8px;
+
+            border: none;
+
+            outline: none;
+
+            text-align: center;
+
+            font-size: 16px;
+
+        }
+
+
+        /* BOTÕES */
+
+        button {
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: 0.2s;
+
+        }
+
+
+        button:hover {
+
+            transform: scale(1.03);
+
+        }
+
+
+        /* BOTÃO ENTRAR */
+
+        .botao-entrar {
+
+            margin-top: 15px;
+
+            padding: 12px 25px;
+
+            border-radius: 8px;
+
+            background: #ff1744;
+
+            color: white;
+
+        }
+
+
+        .botao-entrar:hover {
+
+            background: #ff4567;
+
+        }
+
+
+        /* MENSAGEM DE ERRO */
+
+        #mensagem {
+
+            margin-top: 20px;
+
+            color: #ff6b8a;
+
+        }
+
+
+        /* SURPRESA */
+
+        #surpresa {
+
+            display: none;
+
+        }
+
+
+        /* FOTO */
+
+        .foto {
+
+            width: 250px;
+
+            max-width: 100%;
+
+            border-radius: 15px;
+
+            margin: 15px auto;
+
+            display: block;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.5);
+
+        }
+
+
+        /* CARTA */
+
+        #carta {
+
+            margin-top: 20px;
+
+            line-height: 1.6;
+
+            color: #ffd5dd;
+
+        }
+
+
+        .botao-carta {
+
+            margin-top: 15px;
+
+            padding: 12px 25px;
+
+            border-radius: 10px;
+
+            background: #ff1744;
+
+            color: white;
+
+        }
+
+
+        .botao-carta:hover {
+
+            background: #ff4567;
+
+        }
+
+
+        /* ========================= */
+        /* PLAYER DE MÚSICA */
+        /* ========================= */
+
+
+        .player {
+
+            margin-top: 30px;
+
+            padding: 25px;
+
+            background:
+                linear-gradient(145deg, #202020, #151515);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.5);
+
+        }
+
+
+        /* CAPA */
+
+        .capa {
+
+            width: 120px;
+
+            height: 120px;
+
+            margin: auto;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff1744,
+                    #8e0038
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 55px;
+
+            box-shadow:
+                0 8px 25px rgba(255, 0, 80, 0.3);
+
+        }
+
+
+        .player h2 {
+
+            margin-bottom: 5px;
+
+        }
+
+
+        #nomeMusica {
+
+            color: #ff6b8a;
+
+            font-weight: bold;
+
+            min-height: 20px;
+
+        }
+
+
+        /* BARRA DE PROGRESSO */
+
+        #progresso {
+
+            width: 100%;
+
+            margin-top: 15px;
+
+            cursor: pointer;
+
+            accent-color: #ff1744;
+
+        }
+
+
+        /* TEMPO */
+
+        .tempo {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 12px;
+
+            color: #aaa;
+
+        }
+
+
+        /* CONTROLES */
+
+        .controles {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .controles button {
+
+            width: 45px;
+
+            height: 45px;
+
+            padding: 0;
+
+            border-radius: 50%;
+
+            background: #292929;
+
+            color: white;
+
+            font-size: 20px;
+
+        }
+
+
+        .controles button:hover {
+
+            background: #444;
+
+        }
+
+
+        /* BOTÃO PLAY */
+
+        .controles .play {
+
+            width: 60px;
+
+            height: 60px;
+
+            background: #ff1744;
+
+            font-size: 25px;
+
+        }
+
+
+        .controles .play:hover {
+
+            background: #ff4567;
+
+        }
+
+
+        /* VOLUME */
+
+        .volume {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 15px;
+
+            color: white;
+
+        }
+
+
+        #volume {
+
+            width: 100px;
+
+            accent-color: #ff1744;
+
+        }
+
+
+        /* PLAYLIST */
+
+        .playlist {
+
+            margin-top: 20px;
+
+        }
+
+
+        .playlist button {
+
+            display: block;
+
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            background: #292929;
+
+            color: white;
+
+            text-align: left;
+
+        }
+
+
+        .playlist button:hover {
+
+            background: #3a3a3a;
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="caixa">
+
+
+        <!-- ========================= -->
+        <!-- TELA DA SENHA -->
+        <!-- ========================= -->
+
+
+        <div id="login">
+
+
+            <h1>🔐 Uma surpresa</h1>
+
+
+            <p>
+                Digite a senha para entrar ❤️
+            </p>
+
+
+            <input
+                type="password"
+                id="senha"
+                placeholder="Digite a senha"
+            >
+
+
+            <br>
+
+
+            <button
+                class="botao-entrar"
+                onclick="entrar()"
+            >
+                Entrar
+            </button>
+
+
+            <p id="mensagem"></p>
+
+
+        </div>
+
+
+
+        <!-- ========================= -->
+        <!-- SURPRESA -->
+        <!-- ========================= -->
+
+
+        <div id="surpresa">
+
+
+            <h1>
+                ❤️ Oi, meu amor
+            </h1>
+
+
+            <img
+                src="gugu.jpeg"
+                class="foto"
+            >
+
+
+            <p>
+
+                Se você chegou até aqui...
+                é porque descobriu a senha. 👀
+
+            </p>
+
+
+            <p>
+
+                Mas a senha era fácil de descobrir,
+                porque eu queria que você entrasse. ❤️
+
+            </p>
+
+
+
+            <!-- ========================= -->
+            <!-- PLAYER -->
+            <!-- ========================= -->
+
+
+            <div class="player">
+
+
+                <div class="capa">
+                    🎵
+                </div>
+
+
+                <h2>
+                    🎶 Nossa Playlist
+                </h2>
+
+
+                <p id="nomeMusica">
+                    Nenhuma música selecionada
+                </p>
+
+
+                <audio id="audio"></audio>
+
+
+                <!-- BARRA DE PROGRESSO -->
+
+
+                <input
+                    type="range"
+                    id="progresso"
+                    value="0"
+                    min="0"
+                    max="100"
+                >
+
+
+                <div class="tempo">
+
+                    <span id="tempoAtual">
+                        0:00
+                    </span>
+
+                    <span id="duracao">
+                        0:00
+                    </span>
+
+                </div>
+
+
+
+                <!-- CONTROLES -->
+
+
+                <div class="controles">
+
+
+                    <button
+                        onclick="musicaAnterior()"
+                    >
+                        ⏮
+                    </button>
+
+
+                    <button
+                        class="play"
+                        onclick="playPause()"
+                        id="botaoPlay"
+                    >
+                        ▶
+                    </button>
+
+
+                    <button
+                        onclick="proximaMusica()"
+                    >
+                        ⏭
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- VOLUME -->
+
+
+                <div class="volume">
+
+                    🔊
+
+                    <input
+                        type="range"
+                        id="volume"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value="1"
+                    >
+
+                </div>
+
+
+
+                <!-- PLAYLIST -->
+
+
+                <div class="playlist">
+
+
+                    <button
+                        onclick="escolherMusica(0)"
+                    >
+                        🎵 <span>Música 1</span>
+                    </button>
+
+
+                    <button
+                        onclick="escolherMusica(1)"
+                    >
+                        🎵 <span>Música 2</span>
+                    </button>
+
+
+                    <button
+                        onclick="escolherMusica(2)"
+                    >
+                        🎵 <span>Música 3</span>
+                    </button>
+
+
+                    <button
+                        onclick="escolherMusica(3)"
+                    >
+                        🎵 <span>Música 4</span>
+                    </button>
+
+
+                    <button
+                        onclick="escolherMusica(4)"
+                    >
+                        🎵 <span>Música 5</span>
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ========================= -->
+            <!-- CARTA -->
+            <!-- ========================= -->
+
+
+            <button
+                class="botao-carta"
+                onclick="revelar()"
+            >
+                💌 Abrir mensagem
+            </button>
+
+
+            <p id="carta"></p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+
+    <script>
+
+
+        /* ========================= */
+        /* SENHA */
+        /* ========================= */
+
+
+        function entrar() {
+
+
+            let senha =
+                document.getElementById("senha").value;
+
+
+            if (senha === "1234") {
+
+
+                document.getElementById("login")
+                    .style.display = "none";
+
+
+                document.getElementById("surpresa")
+                    .style.display = "block";
+
+
+            }
+
+            else {
+
+
+                document.getElementById("mensagem")
+                    .innerHTML =
+                    "❌ Senha errada, tenta de novo ❤️";
+
+
+            }
+
+        }
+
+
+
+        /* ========================= */
+        /* CARTA */
+        /* ========================= */
+
+
+        function revelar() {
+
+
+            document.getElementById("carta")
+                .innerHTML =
+
+                "Você é uma das melhores partes da minha vida. " +
+
+                "Eu poderia escrever mil coisas aqui, " +
+
+                "mas no final só queria dizer: " +
+
+                "eu amo você. ❤️";
+
+
+        }
+
+
+
+        /* ========================= */
+        /* MÚSICAS */
+        /* ========================= */
+
+
+        let musicas = [
+
+            "musica1.mp3",
+
+            "musica2.mp3",
+
+            "musica3.mp3",
+
+            "musica4.mp3",
+
+            "musica5.mp3"
+
+        ];
+
+
+        let nomes = [
+
+            "Nossa música 1 ❤️",
+
+            "Nossa música 2 ❤️",
+
+            "Nossa música 3 ❤️",
+
+            "Nossa música 4 ❤️",
+
+            "Nossa música 5 ❤️"
+
+        ];
+
+
+        let musicaAtual = 0;
+
+
+        let audio =
+            document.getElementById("audio");
+
+
+        let progresso =
+            document.getElementById("progresso");
+
+
+        let volume =
+            document.getElementById("volume");
+
+
+        let botaoPlay =
+            document.getElementById("botaoPlay");
+
+
+        let tempoAtual =
+            document.getElementById("tempoAtual");
+
+
+        let duracao =
+            document.getElementById("duracao");
+
+
+
+        /* ========================= */
+        /* ESCOLHER MÚSICA */
+        /* ========================= */
+
+
+        function escolherMusica(numero) {
+
+
+            musicaAtual = numero;
+
+
+            audio.src =
+                musicas[musicaAtual];
+
+
+            document.getElementById("nomeMusica")
+                .innerHTML =
+                nomes[musicaAtual];
+
+
+            audio.play();
+
+
+            botaoPlay.innerHTML = "⏸";
+
+
+        }
+
+
+
+        /* ========================= */
+        /* PLAY / PAUSE */
+        /* ========================= */
+
+
+        function playPause() {
+
+
+            if (audio.paused) {
+
+
+                if (audio.src === "") {
+
+
+                    escolherMusica(musicaAtual);
+
+
+                }
+
+                else {
+
+
+                    audio.play();
+
+
+                    botaoPlay.innerHTML = "⏸";
+
+
+                }
+
+
+            }
+
+            else {
+
+
+                audio.pause();
+
+
+                botaoPlay.innerHTML = "▶";
+
+
+            }
+
+        }
+
+
+
+        /* ========================= */
+        /* PRÓXIMA MÚSICA */
+        /* ========================= */
+
+
+        function proximaMusica() {
+
+
+            musicaAtual++;
+
+
+            if (
+                musicaAtual >=
+                musicas.length
+            ) {
+
+
+                musicaAtual = 0;
+
+
+            }
+
+
+            escolherMusica(musicaAtual);
+
+
+        }
+
+
+
+        /* ========================= */
+        /* MÚSICA ANTERIOR */
+        /* ========================= */
+
+
+        function musicaAnterior() {
+
+
+            musicaAtual--;
+
+
+            if (musicaAtual < 0) {
+
+
+                musicaAtual =
+                    musicas.length - 1;
+
+
+            }
+
+
+            escolherMusica(musicaAtual);
+
+
+        }
+
+
+
+        /* ========================= */
+        /* CARREGAR DURAÇÃO */
+        /* ========================= */
+
+
+        audio.addEventListener(
+            "loadedmetadata",
+            function() {
+
+
+                progresso.max =
+                    audio.duration;
+
+
+                duracao.innerHTML =
+                    formatarTempo(
+                        audio.duration
+                    );
+
+
+            }
+        );
+
+
+
+        /* ========================= */
+        /* ATUALIZAR PROGRESSO */
+        /* ========================= */
+
+
+        audio.addEventListener(
+            "timeupdate",
+            function() {
+
+
+                progresso.value =
+                    audio.currentTime;
+
+
+                tempoAtual.innerHTML =
+                    formatarTempo(
+                        audio.currentTime
+                    );
+
+
+            }
+        );
+
+
+
+        /* ========================= */
+        /* ARRASTAR PROGRESSO */
+        /* ========================= */
+
+
+        progresso.addEventListener(
+            "input",
+            function() {
+
+
+                audio.currentTime =
+                    progresso.value;
+
+
+            }
+        );
+
+
+
+        /* ========================= */
+        /* VOLUME */
+        /* ========================= */
+
+
+        volume.addEventListener(
+            "input",
+            function() {
+
+
+                audio.volume =
+                    volume.value;
+
+
+            }
+        );
+
+
+
+        /* ========================= */
+        /* FORMATAR TEMPO */
+        /* ========================= */
+
+
+        function formatarTempo(segundos) {
+
+
+            if (isNaN(segundos)) {
+
+
+                return "0:00";
+
+
+            }
+
+
+            let minutos =
+                Math.floor(segundos / 60);
+
+
+            let segundosRestantes =
+                Math.floor(segundos % 60);
+
+
+            if (
+                segundosRestantes < 10
+            ) {
+
+
+                segundosRestantes =
+                    "0" +
+                    segundosRestantes;
+
+
+            }
+
+
+            return (
+                minutos +
+                ":" +
+                segundosRestantes
+            );
+
+
+        }
+
+
+
+        /* ========================= */
+        /* PRÓXIMA AUTOMATICAMENTE */
+        /* ========================= */
+
+
+        audio.addEventListener(
+            "ended",
+            function() {
+
+
+                proximaMusica();
+
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
+```
